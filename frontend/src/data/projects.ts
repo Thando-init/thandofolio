@@ -8,7 +8,7 @@ export const projects: PortfolioProject[] = [
     category: 'Systems Integration / Workflow Automation',
     status: 'Built Workflow Prototype',
     summary:
-      "I built an automated booking workflow for a small salon, connecting customer enquiries, owner approval, payment, and calendar scheduling into one coordinated process. The prototype pairs a static HTML/CSS/JavaScript interface with a Java 21/Spring Boot API, PostgreSQL, ActiveMQ Artemis and an exported n8n workflow; its payment page is a simulation, and live third-party credentials or deployment have not been confirmed.",
+      'I built a local appointment-operations prototype that connects a static booking form to a Spring Boot API, PostgreSQL and ActiveMQ, with n8n coordinating owner notifications, approval and calendar scheduling. I manually exercised the email and Google Calendar steps locally; the payment flow is a simulation, and the project is not publicly deployed.',
     technologies: [
       { name: 'Java 21', status: 'used' },
       { name: 'Spring Boot 3.4.5', status: 'used' },
@@ -16,10 +16,10 @@ export const projects: PortfolioProject[] = [
       { name: 'PostgreSQL 16', status: 'used' },
       { name: 'Flyway 10.20.1', status: 'used' },
       { name: 'ActiveMQ Artemis', status: 'used' },
-      { name: 'n8n workflow export', status: 'used' },
+      { name: 'n8n and webhooks', status: 'used' },
       { name: 'HTML · CSS · JavaScript', status: 'used' },
-      { name: 'Webhooks', status: 'used' },
-      { name: 'Google Calendar workflow node', status: 'used' },
+      { name: 'Email notifications', status: 'used' },
+      { name: 'Google Calendar API', status: 'used' },
     ],
     caseStudy: [
       {
