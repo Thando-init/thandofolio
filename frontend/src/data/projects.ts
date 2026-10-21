@@ -25,12 +25,12 @@ export const projects: PortfolioProject[] = [
       {
         heading: 'Verified architecture',
         body:
-          'The public repository contains a Java 21 booking service built with Spring Boot 3.4.5 and Maven, PostgreSQL 16 persistence with Flyway 10.20.1 migrations, ActiveMQ Artemis messaging, and a static HTML/CSS/JavaScript browser interface. It also includes an exported n8n workflow. The browser interface is not built with React or another client-side framework.',
+          'The project combines a Java 21 booking service built with Spring Boot 3.4.5 and Maven, PostgreSQL 16 persistence with Flyway 10.20.1 migrations, ActiveMQ Artemis messaging, a static HTML/CSS/JavaScript interface, and an n8n workflow. The API owns availability rules and booking state; n8n coordinates external actions.',
       },
       {
         heading: 'Workflow and integration boundary',
         body:
-          "A potential client submits a request through the mock salon website. The API models availability and booking; the n8n workflow export shows webhook-triggered owner notification and an approval or rejection step. If approved, the workflow moves to a payment-link step; the browser demo simulates payment confirmation, after which a Google Calendar booking step is represented in the workflow. The payment flow is not connected to a live processor. Email and Google Calendar nodes reference credentials that are not included, so the repository does not establish that those external services are configured or running.",
+          "The API validates and stores the booking. The JMS path sends booking.created events to a Java consumer; during my local demo, I sent the intake webhook directly because JMS-to-n8n forwarding was not configured. The workflow retrieves the authoritative booking, sends an owner email, and handles approval through the API. Approval returns a demo payment link. The simulated payment callback updates booking state, after which n8n created a Google Calendar event and saved its event ID through the API.",
       },
       {
         heading: 'Prototype boundary',
