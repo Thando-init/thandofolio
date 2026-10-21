@@ -8,7 +8,7 @@ describe('ProjectCard', () => {
     const salonProject = projects.find((project) => project.id === 'salon-booking');
     expect(salonProject).toBeDefined();
 
-    render(<ProjectCard project={salonProject!} index="02" />);
+    render(<ProjectCard project={salonProject!} index="01" />);
 
     expect(screen.getByRole('heading', { name: 'Salon Booking and Payment Automation' })).toBeInTheDocument();
     expect(screen.getByText('Built Workflow Prototype')).toBeInTheDocument();
@@ -30,7 +30,7 @@ describe('ProjectCard', () => {
     const influencerIntel = projects.find((project) => project.id === 'influencer-intel');
     expect(influencerIntel).toBeDefined();
 
-    render(<ProjectCard project={influencerIntel!} index="01" />);
+    render(<ProjectCard project={influencerIntel!} index="02" />);
 
     expect(screen.getByRole('link', { name: /View Influencer Intel source repository on GitHub/ })).toHaveAttribute(
       'href',

@@ -12,7 +12,7 @@ export function ProjectsSection() {
           eyebrow="Selected work"
           title="Small problems. Useful systems."
           titleId="projects-title"
-          introduction="Three different stages of building: an evolving data dashboard, a connected workflow prototype, and a hackathon MVP."
+          introduction="A connected workflow prototype, an evolving creator-data project, and a hackathon MVP."
         />
         <div className="project-list">
           {projects.map((project, index) => (

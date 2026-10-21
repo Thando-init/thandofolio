@@ -2,46 +2,6 @@ import type { PortfolioProject } from '../types/project';
 
 export const projects: PortfolioProject[] = [
   {
-    id: 'influencer-intel',
-    title: 'Influencer Intel',
-    repositoryUrl: 'https://github.com/Thando-init/Influencer-Intel-Dashboard',
-    category: 'Data Analytics / Creator Intelligence',
-    status: 'Work in Progress — Undergoing an Upgrade',
-    summary:
-      "Influencer Intel is a data-driven dashboard for exploring YouTube creator performance and turning channel metrics into useful insights. I'm upgrading the project beyond its original dashboard format, with a focus on making it more automated, scalable, and useful for ongoing creator intelligence.",
-    technologies: [
-      { name: 'Python', status: 'used' },
-      { name: 'Streamlit', status: 'used' },
-      { name: 'Pandas', status: 'used' },
-      { name: 'Altair', status: 'used' },
-      { name: 'FastAPI', status: 'used' },
-      { name: 'Pydantic', status: 'used' },
-      { name: 'YouTube Data API', status: 'used' },
-    ],
-    caseStudy: [
-      {
-        heading: 'Verified implementation',
-        body:
-          'The current public repository contains a Python Streamlit dashboard using Pandas for data handling and Altair for charts, plus a separate FastAPI backend with Pydantic request validation and a YouTube Data API integration. These technologies are confirmed in the current source and dependency files; they do not by themselves confirm a live backend deployment or the specific changes in progress.',
-      },
-      {
-        heading: 'Upgrade status',
-        body:
-          'The project is marked as undergoing an upgrade. The precise changes currently in progress have not been confirmed here, so this case study does not claim that a particular feature has shipped.',
-      },
-      {
-        heading: 'Demo access',
-        body:
-          'The supplied Streamlit URL currently redirects anonymous visitors to Streamlit authentication instead of the dashboard and may show an inactivity/wake screen. It is therefore not presented as a public live demo. A shareable updated deployment link can be added when it is available.',
-      },
-      {
-        heading: 'Longer-term direction',
-        body:
-          'An evolving CreatorOps concept could bring creator intelligence and campaign operations together. Scheduled ingestion, historical tracking, alerts, AI-assisted insights, API integrations and campaign workflows are exploratory ideas, not current features.',
-      },
-    ],
-  },
-  {
     id: 'salon-booking',
     title: 'Salon Booking and Payment Automation',
     repositoryUrl: 'https://github.com/Thando-init/appointment-ops-platform',
@@ -88,6 +48,46 @@ export const projects: PortfolioProject[] = [
     ],
   },
   {
+    id: 'influencer-intel',
+    title: 'Influencer Intel',
+    repositoryUrl: 'https://github.com/Thando-init/Influencer-Intel-Dashboard',
+    category: 'Data Analytics / Creator Intelligence',
+    status: 'Work in Progress — Undergoing an Upgrade',
+    summary:
+      "Influencer Intel is a data-driven dashboard for exploring YouTube creator performance and turning channel metrics into useful insights. I'm upgrading the project beyond its original dashboard format, with a focus on making it more automated, scalable, and useful for ongoing creator intelligence.",
+    technologies: [
+      { name: 'Python', status: 'used' },
+      { name: 'Streamlit', status: 'used' },
+      { name: 'Pandas', status: 'used' },
+      { name: 'Altair', status: 'used' },
+      { name: 'FastAPI', status: 'used' },
+      { name: 'Pydantic', status: 'used' },
+      { name: 'YouTube Data API', status: 'used' },
+    ],
+    caseStudy: [
+      {
+        heading: 'Verified implementation',
+        body:
+          'The current public repository contains a Python Streamlit dashboard using Pandas for data handling and Altair for charts, plus a separate FastAPI backend with Pydantic request validation and a YouTube Data API integration. These technologies are confirmed in the current source and dependency files; they do not by themselves confirm a live backend deployment or the specific changes in progress.',
+      },
+      {
+        heading: 'Upgrade status',
+        body:
+          'The project is marked as undergoing an upgrade. The precise changes currently in progress have not been confirmed here, so this case study does not claim that a particular feature has shipped.',
+      },
+      {
+        heading: 'Demo access',
+        body:
+          'The supplied Streamlit URL currently redirects anonymous visitors to Streamlit authentication instead of the dashboard and may show an inactivity/wake screen. It is therefore not presented as a public live demo. A shareable updated deployment link can be added when it is available.',
+      },
+      {
+        heading: 'Longer-term direction',
+        body:
+          'An evolving CreatorOps concept could bring creator intelligence and campaign operations together. Scheduled ingestion, historical tracking, alerts, AI-assisted insights, API integrations and campaign workflows are exploratory ideas, not current features.',
+      },
+    ],
+  },
+  {
     id: 'saferide',
     title: 'SafeRide',
     category: 'Product Development / Travel Safety',
@@ -113,5 +113,5 @@ export const projects: PortfolioProject[] = [
           'Lovable is the only confirmed build tool. No additional language, framework, database or backend stack is claimed because no publicly accessible source repository was available to verify one.',
       },
     ],
-  },
+  }
 ];
