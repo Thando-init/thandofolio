@@ -26,6 +26,21 @@ describe('ProjectCard', () => {
     expect(screen.getByText('Calendar Event + Saved ID')).toBeVisible();
   });
 
+  it('renders the labelled screenshot gallery when the salon case study is expanded', () => {
+    const salonProject = projects.find((project) => project.id === 'salon-booking');
+    expect(salonProject).toBeDefined();
+
+    render(<ProjectCard project={salonProject!} index="01" />);
+    fireEvent.click(screen.getByText('Read case study'));
+
+    expect(screen.getByRole('heading', { name: 'Demo screenshots' })).toBeVisible();
+    expect(screen.getByAltText('Salon booking page with service cards and a list of available appointment times.')).toHaveAttribute(
+      'src',
+      '/images/appointment-ops/01-booking-service-and-available-slots.png',
+    );
+    expect(screen.getByText('The simulated confirmation continues to the Google Calendar step.')).toBeVisible();
+  });
+
   it('shows the supplied public repository on the matching project card', () => {
     const influencerIntel = projects.find((project) => project.id === 'influencer-intel');
     expect(influencerIntel).toBeDefined();
