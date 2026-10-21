@@ -12,6 +12,6 @@ export const technicalFocus = [
   {
     label: 'Exploring next',
     description: 'Areas of interest rather than claims of established proficiency.',
-    items: ['Backend development', 'API design', 'Database concepts', 'Systems integration', 'Workflow automation', 'Python and data visualisation'],
+    items: ['Backend development', 'API design', 'Database concepts', 'Systems integration', 'Workflow automation', 'AI-assisted workflows', 'Python and data visualisation'],
   },
 ];
