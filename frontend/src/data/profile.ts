@@ -4,7 +4,7 @@ export const profile = {
   eyebrow: 'EMERGING TECH PROFESSIONAL · SOUTH AFRICA',
   headline: 'I build systems that make work simpler.',
   introduction:
-    "I'm Thando — an emerging tech professional interested in systems integration, backend development, and workflow automation. I enjoy connecting tools, simplifying processes, and building practical solutions that reduce repetitive work for businesses and individuals.",
+    "I'm Thando — an emerging tech professional exploring how systems integration, workflow automation, and AI can make everyday business tasks simpler. I build practical projects to connect tools, understand how systems work together, and reduce repetitive effort.",
   positioning:
     'I build practical digital solutions that connect systems, simplify workflows, and reduce repetitive work.',
   portraitPath: '/images/thando-majola.webp',
