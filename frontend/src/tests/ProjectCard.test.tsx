@@ -19,10 +19,10 @@ describe('ProjectCard', () => {
     expect(screen.getByText('Java 21')).toBeInTheDocument();
     expect(screen.getByText('Spring Boot 3.4.5')).toBeInTheDocument();
     expect(screen.getByText('Booking Form')).toBeInTheDocument();
-    expect(screen.queryByText('Prototype boundary')).not.toBeVisible();
+    expect(screen.queryByText('What is still a prototype')).not.toBeVisible();
 
     fireEvent.click(screen.getByText('Read case study'));
-    expect(screen.getByText('Prototype boundary')).toBeVisible();
+    expect(screen.getByText('What is still a prototype')).toBeVisible();
     expect(screen.getByText('Calendar Event + Saved ID')).toBeVisible();
   });
 

@@ -1,22 +1,22 @@
 # Project stack verification
 
-Checked against the user-supplied public repositories on 18 October 2026. These findings describe files in the repositories; they do not prove that a service is deployed, its external credentials are configured, or every component was personally implemented by one contributor.
+I checked the user-supplied public repositories on 18 October 2026 and recorded additional local Salon workflow test results on 20 October 2026. I use this page to separate repository evidence from my own local test evidence. These checks do not prove that a service is publicly deployed or that every repository component was implemented by one contributor.
 
 ## Influencer Intel
 
-The repository uses Python. Its Streamlit dashboard in `app.py` imports Streamlit, Pandas and Altair. The project has a separate FastAPI service with Pydantic request validation, and its backend includes a YouTube Data API client. The current technology list therefore shows Python, Streamlit, Pandas, Altair, FastAPI, Pydantic and YouTube Data API. The repository README mentions Plotly, NumPy, `Home.py` and Docker, but those are not supported by the current manifests and source tree; the checked implementation uses Altair and `app.py` instead. [1] [2] [3] [4] [5] [6]
+I reviewed the current Influencer Intel repository. I confirmed that its Streamlit dashboard in `app.py` uses Python, Pandas, and Altair. I also confirmed a separate FastAPI service with Pydantic request validation and a YouTube Data API client. I therefore list Python, Streamlit, Pandas, Altair, FastAPI, Pydantic, and YouTube Data API as technologies used in the project. The repository README mentions Plotly, NumPy, `Home.py`, and Docker, but I could not confirm those from the current manifests and source tree; the implementation I reviewed uses Altair and `app.py` instead. [1] [2] [3] [4] [5] [6]
 
-The user-supplied Streamlit URL redirected an anonymous visitor to Streamlit authentication during the check and could also show an inactivity/wake page. It is not exposed on the portfolio as a public demo link. Add the updated public deployment URL when Thando shares it. [7]
+I checked the supplied Streamlit URL as an anonymous visitor. It redirected me to Streamlit authentication and could also show an inactivity/wake page, so I do not present it as a public demo. I can add an updated public deployment link when I have one. [7]
 
 ## Salon Booking and Payment Automation
 
-The public repository contains a Java 21 service using Spring Boot 3.4.5 and Maven, PostgreSQL 16 with Flyway migrations, and ActiveMQ Artemis. The booking and owner browser pages use plain HTML, CSS and JavaScript; they are not a React application. An exported n8n workflow contains webhook, email and Google Calendar nodes. Its email/calendar nodes reference external credentials, but the repository does not include those credential values or prove that an n8n instance is running. [8] [9] [10]
+I inspected the public repository and confirmed a Java 21 service using Spring Boot 3.4.5 and Maven, PostgreSQL 16 with Flyway migrations, and ActiveMQ Artemis. The booking and owner pages use plain HTML, CSS, and JavaScript. I also confirmed an exported n8n workflow with webhook, email, and Google Calendar steps. The repository does not contain the external credential values. [8] [9] [10]
 
-The payment-link endpoint and browser payment page implement a local simulation, not a live payment provider. The repository describes deployment as future work, so the case study does not claim production use, successful live transactions, configured email/calendar integrations or measured results. [11] [12]
+I exercised the email and calendar portions of the workflow locally: the owner email was sent, a Google Calendar event was created, and the event ID was recorded through the API. In the local configuration I tested, JMS-to-n8n forwarding was disabled, so I sent the intake test webhook directly. I also confirmed that the payment page is a simulation: it does not charge money or verify a real payment-provider callback. These tests demonstrate local prototype behavior, not a public production service. [11] [12]
 
 ## SafeRide
 
-Lovable is the only technology confirmed by the original project brief. The supplied GitHub URL `https://github.com/Thando-init/safe-ride-finder` returned an unauthenticated 404, and the public repository listing did not contain that exact repository name. A public 404 cannot distinguish a deleted/missing project from a private or otherwise unavailable repository; no additional stack is claimed and the link is not displayed. [13] [14]
+I can confirm Lovable as the technology named in the original project brief. The supplied GitHub URL `https://github.com/Thando-init/safe-ride-finder` returned an unauthenticated 404 when I checked it, and I could not find that exact repository name in the public repository listing. A public 404 cannot distinguish a deleted or missing repository from a private or otherwise unavailable one. I do not claim any additional stack or display the repository link until I can verify a corrected public URL. [13] [14]
 
 ## References
 

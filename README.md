@@ -1,41 +1,35 @@
 # Thando Majola — Personal Tech Portfolio
 
-A responsive editorial portfolio introducing Thando’s path into technology, interests in systems integration and automation, three selected projects, two reachable project repositories, and his supplied direct contact routes. The site intentionally avoids invented experience, personal details, statistics and outcomes.
+I built this responsive editorial portfolio to introduce my path into technology, share selected projects, and make it easy to contact me. My current interests are systems integration, backend development, workflow automation, and practical AI-enabled workflows. I keep project claims evidence-led and distinguish what I have tested from what I am still exploring.
 
 ## Stack and architecture
 
-The frontend uses React 19.2.0, TypeScript 5.9.3 and Vite 7.2.2, with pnpm 11.25.0. Vite pre-renders meaningful page content into the initial HTML, then React hydrates it for interactive navigation. The backend uses Java 21, Spring Boot 4.1.1 and Maven 3.10.0 through the project Maven Wrapper. It provides only `GET /api/health` for readiness. There is no database, authentication, contact form or email delivery service.
+I built the frontend with React 19.2.0, TypeScript 5.9.3, and Vite 7.2.2. Vite pre-renders the page into the initial HTML, and React hydrates it for interactive navigation and project details. I also included a small Java 21/Spring Boot 4.1.1 backend, built with Maven 3.10.0 through the project Maven Wrapper. It currently exposes only `GET /api/health`; I have not added a database, authentication, contact form, or email-delivery service.
 
-The pnpm workspace sets `nodeLinker: hoisted`, which pnpm documents as a flat `node_modules` layout without symlinks. This avoids the symlinked install-tree format implicated in hosted source archiving. pnpm 11 reads linker configuration from `pnpm-workspace.yaml`, not `.npmrc`; see the official [node-modules settings](https://pnpm.io/settings/node-modules) and [pnpm 11 migration notes](https://pnpm.io/migration).
+I configured the pnpm workspace with `nodeLinker: hoisted` so dependencies install in a flat `node_modules` layout without symlinks. This avoids the symlinked install-tree format implicated in a hosted source-archive issue. pnpm 11 reads this setting from `pnpm-workspace.yaml`, not `.npmrc`; see the official [node-modules settings](https://pnpm.io/settings/node-modules) and [pnpm 11 migration notes](https://pnpm.io/migration).
 
-In local development, Vite serves the frontend on port 3000 and proxies `/api` to Spring Boot on port 8080. In managed deployment, the frontend is built as static output and the backend runs in a Java 21 container. Both share one public origin: `/api/*` reaches Spring Boot and page requests reach the static portfolio. The portfolio page itself does not currently call the health endpoint; the proxy and published route are ready for a future genuine server-backed feature. This avoids a separate browser API origin and custom CORS configuration.
+When I develop locally, Vite serves the frontend on port 3000 and proxies `/api` to Spring Boot on port 8080. I prepared the same-origin route for a future server-backed feature, but my current portfolio page does not call the health endpoint. The page itself is static and does not need the backend to display its content.
 
-## Important folders
+## Where I keep things
 
-- `frontend/src/components/` contains navigation, hero, headings, project cards, workflow diagram, contact and footer.
-- `frontend/src/sections/` composes About, Projects and Technical Focus.
-- `frontend/src/data/` contains profile/contact details, project facts and technical-focus labels.
-- `frontend/src/types/` defines the project content model.
-- `frontend/public/images/thando-majola.webp` contains the optimized, supplied portrait and is served as `/images/thando-majola.webp` in both Manus Preview and Vercel.
-- `backend/src/main/java/` contains the Spring application and health controller; `backend/src/test/java/` tests its HTTP response with MockMvc.
-- `docs/` explains setup, architecture and deployment; `docs/project-stack-verification.md` records repository-backed technology findings and source links.
+- I keep navigation, the hero, project cards, the workflow diagram, contact links, and the footer in `frontend/src/components/`.
+- I compose the About, Projects, and Technical Focus sections in `frontend/src/sections/`.
+- I keep my profile and contact details, project facts, and technical-focus labels in `frontend/src/data/`.
+- I define the project content model in `frontend/src/types/`.
+- I keep my optimized portrait at `frontend/public/images/thando-majola.webp`; the site serves it from `/images/thando-majola.webp`.
+- I keep my downloadable CV at `frontend/public/cv/thando-majola-cv.pdf`; the site serves it from `/cv/thando-majola-cv.pdf`.
+- I keep the Java health application and its tests under `backend/src/`.
+- I explain setup, architecture, deployment status, and project-stack evidence in `docs/`.
 
 ## Prerequisites and local development
 
-Use Java 21, Node.js 22 and pnpm 11.25.0. Install the pinned pnpm version once with npm:
+I use Java 21, Node.js 22, and pnpm 11.25.0. To avoid replacing an existing global pnpm installation, I run the pinned pnpm version through `npx`:
 
 ```sh
-npm install --global pnpm@11.25.0
+npx --yes pnpm@11.25.0 --dir frontend install --frozen-lockfile
 ```
 
-Install frontend dependencies from the checked-in lockfile:
-
-```sh
-cd frontend
-pnpm install --frozen-lockfile
-```
-
-In one terminal at the repository root, start the backend:
+Start the backend from the repository root:
 
 ```sh
 ./backend/mvnw -f backend/pom.xml spring-boot:run
@@ -44,38 +38,36 @@ In one terminal at the repository root, start the backend:
 In another terminal, start Vite:
 
 ```sh
-cd frontend
-pnpm dev
+npx --yes pnpm@11.25.0 --dir frontend dev
 ```
 
-The site listens on port 3000; the backend listens on port 8080 locally. The Vite `/api` proxy keeps any browser-side API request same-origin, although the current page has no API-backed feature. See [setup.md](docs/setup.md) for more detail.
+The site listens on port 3000 and the backend listens on port 8080 locally. The Vite `/api` proxy keeps any browser-side API request same-origin, although the current page has no API-backed feature. I explain the local setup in [docs/setup.md](docs/setup.md).
 
 ## Tests and production build
 
+I use these commands to type-check, test, and build the frontend, then test the backend:
+
 ```sh
-cd frontend
-pnpm typecheck
-pnpm test
-pnpm build
-cd ..
+npx --yes pnpm@11.25.0 --dir frontend typecheck
+npx --yes pnpm@11.25.0 --dir frontend test
+npx --yes pnpm@11.25.0 --dir frontend build
 ./backend/mvnw -f backend/pom.xml test
 ```
 
-The frontend build type-checks, bundles client assets and statically pre-renders the page. `GET /api/health` returns `{"status":"ok"}`. Only results actually run in this workspace should be reported as passed.
+The frontend build bundles the client assets and statically pre-renders the page. `GET /api/health` returns `{"status":"ok"}`. I report only checks I have actually run.
 
-## Updating portfolio content
+## Updating my portfolio content
 
-- The supplied photograph is stored in `frontend/public/images/thando-majola.webp`, and `profile.portraitPath` uses `/images/thando-majola.webp` in Preview and a future Vercel build. For future photo changes, keep a descriptive, optimised asset in `frontend/public/images/` and update the profile path.
-- Edit the hero copy, central positioning statement and biography in `frontend/src/data/profile.ts`.
-- Update the supplied email, LinkedIn, GitHub or CV values in `frontend/src/data/profile.ts` when they change. `frontend/src/data/socialLinks.ts` derives its links from those fields. The email is a `mailto:` link; the site does not store messages.
-- Edit the case studies in `frontend/src/data/projects.ts`. The Influencer Intel and salon workflow cards link to their supplied public GitHub repositories. The current Influencer Intel Streamlit URL redirects anonymous visitors to authentication, so it is not shown as a public demo; add its updated Vercel URL when supplied. The SafeRide URL currently returns 404 and is intentionally not rendered. See `docs/project-stack-verification.md` for confirmed stacks and source evidence. `frontend/src/types/project.ts` documents optional screenshots, repository links, demo links and achievement information. Add links only after verifying public access.
-- Add a project by appending a `PortfolioProject` to `projects.ts` with title, category, status, summary, technology verification state and case-study sections. Add workflow steps only when a diagram is useful.
-- Update `frontend/src/data/technicalFocus.ts` while keeping prototype use, current learning and exploration distinct.
+- I keep my hero copy, positioning statement, biography, portrait path, and contact URLs in `frontend/src/data/profile.ts`.
+- I keep the downloadable CV file at `frontend/public/cv/thando-majola-cv.pdf`. To update it, I replace that PDF and keep the same filename, or change the path in `profile.ts` and the download filename in `frontend/src/data/socialLinks.ts` together.
+- I keep my project summaries and case studies in `frontend/src/data/projects.ts`. The Influencer Intel and Salon Booking cards link to their supplied public GitHub repositories. I do not show the current authentication-gated Streamlit link as a public demo, and I keep the SafeRide repository link hidden while its supplied URL is unavailable. I document my source checks in `docs/project-stack-verification.md`.
+- When I add a project, I add a `PortfolioProject` to `projects.ts` with its title, category, status, summary, technology verification state, and case-study sections. I add workflow steps only when a diagram helps explain the project.
+- I keep my prototype tools, current learning, and future exploration distinct in `frontend/src/data/technicalFocus.ts`.
 
 ## Configuration and contact-delivery limits
 
-`.env.example` has placeholder names only. The API route is relative `/api` and same-origin. The Contact section uses the supplied email, LinkedIn, GitHub and CV URLs, but no email-delivery service is configured, so the site has no form and sends no messages. Do not add a form until a real delivery provider is configured. Then validate and limit inputs, add basic abuse protection, keep credentials in the server environment, configure the actual production origin and report success only after the provider confirms delivery. Never log unnecessary personal data.
+I have not configured an email-delivery service. My Contact section displays my supplied email, LinkedIn, GitHub, and CV links; the email is a `mailto:` link, and the site does not store or send form submissions. `.env.example` contains placeholder names only. If I add a contact form later, I will configure a real delivery provider, validate and limit inputs, add basic abuse protection, keep credentials on the server, and report success only after the provider confirms delivery.
 
-## Deployment
+## Deployment status
 
-The project is configured for a static frontend plus Spring Boot container deployment. See [deployment.md](docs/deployment.md) for the exact pinned static build command, health path, routes, environment behavior, checkpoint and publication steps. The platform Preview is not a production URL; share a live URL only after publication is confirmed.
+I have not deployed this portfolio to Netlify, and I do not yet have a Netlify production URL. My current page is a static React/Vite site and does not call the Java health endpoint, so I plan to deploy the frontend first and leave the backend out of that static deployment. I will confirm the exact Netlify build settings after I have an account and can validate a deployment. See [docs/deployment.md](docs/deployment.md) for the current status.
