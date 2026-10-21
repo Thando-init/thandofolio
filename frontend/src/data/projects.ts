@@ -30,7 +30,7 @@ export const projects: PortfolioProject[] = [
       {
         heading: 'Workflow and integration boundary',
         body:
-          "The API validates and stores the booking. The JMS path sends booking.created events to a Java consumer; during my local demo, I sent the intake webhook directly because JMS-to-n8n forwarding was not configured. The workflow retrieves the authoritative booking, sends an owner email, and handles approval through the API. Approval returns a demo payment link. The simulated payment callback updates booking state, after which n8n created a Google Calendar event and saved its event ID through the API.",
+          'The API validates and stores the booking. The JMS path sends booking.created events to a Java consumer; during my local demo, I sent the intake webhook directly because JMS-to-n8n forwarding was not configured. The workflow retrieves the authoritative booking, sends an owner email, and handles approval through the API. Approval returns a demo payment link. The simulated payment callback updates booking state, after which n8n created a Google Calendar event and saved its event ID through the API.',
       },
       {
         heading: 'Challenges and what I learned',
@@ -45,11 +45,58 @@ export const projects: PortfolioProject[] = [
     ],
     workflowSteps: [
       'Booking Form',
-      'Owner Notification',
+      'API + Booking Event',
+      'n8n Owner Email',
       'Owner Approval',
-      'Payment Link',
-      'Payment Confirmation',
+      'Simulated Payment',
       'Calendar Event + Saved ID',
+    ],
+    screenshots: [
+      {
+        src: '/images/appointment-ops/01-booking-service-and-available-slots.png',
+        alt: 'Salon booking page with service cards and a list of available appointment times.',
+        caption: 'Choose a service and an available appointment slot.',
+      },
+      {
+        src: '/images/appointment-ops/02-booking-request-details.png',
+        alt: 'Booking form showing the selected service, appointment time, contact fields, and notes.',
+        caption: 'Enter booking details and preferences before submitting the request.',
+      },
+      {
+        src: '/images/appointment-ops/03-booking-request-confirmed.png',
+        alt: 'Booking form confirmation that the request was received for studio review.',
+        caption: 'The booking form confirms the request was received for review.',
+      },
+      {
+        src: '/images/appointment-ops/04-owner-notification-email.png',
+        alt: 'Automated owner email containing a booking summary and a review link.',
+        caption: 'n8n sends the owner a booking notification with a review link.',
+      },
+      {
+        src: '/images/appointment-ops/05-n8n-workflow-overview.png',
+        alt: 'n8n canvas showing booking intake, owner approval, and demo payment/calendar branches.',
+        caption: 'The workflow separates booking intake, owner approval, and payment/calendar steps.',
+      },
+      {
+        src: '/images/appointment-ops/06-owner-review-status.png',
+        alt: 'Owner review page showing booking details and the recorded approval state.',
+        caption: 'The owner review page presents booking details and approval status.',
+      },
+      {
+        src: '/images/appointment-ops/07-approved-booking-payment-link.png',
+        alt: 'Owner review page after approval with a link to the demo payment page.',
+        caption: 'An approved request can continue to the demo payment step.',
+      },
+      {
+        src: '/images/appointment-ops/08-demo-payment-pending.png',
+        alt: 'Demo payment page showing an approved booking and the not-started payment status.',
+        caption: 'The payment screen clearly labels payment as a simulation.',
+      },
+      {
+        src: '/images/appointment-ops/09-demo-payment-confirmed.png',
+        alt: 'Demo payment page showing simulated payment confirmed and calendar processing underway.',
+        caption: 'The simulated confirmation continues to the Google Calendar step.',
+      },
     ],
   },
   {
@@ -118,5 +165,5 @@ export const projects: PortfolioProject[] = [
           'Lovable is the only confirmed build tool. No additional language, framework, database or backend stack is claimed because no publicly accessible source repository was available to verify one.',
       },
     ],
-  }
+  },
 ];
