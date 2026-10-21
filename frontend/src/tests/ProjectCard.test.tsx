@@ -23,7 +23,7 @@ describe('ProjectCard', () => {
 
     fireEvent.click(screen.getByText('Read case study'));
     expect(screen.getByText('Prototype boundary')).toBeVisible();
-    expect(screen.getByText('Google Calendar Booking')).toBeVisible();
+    expect(screen.getByText('Calendar Event + Saved ID')).toBeVisible();
   });
 
   it('shows the supplied public repository on the matching project card', () => {

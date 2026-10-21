@@ -33,9 +33,14 @@ export const projects: PortfolioProject[] = [
           "The API validates and stores the booking. The JMS path sends booking.created events to a Java consumer; during my local demo, I sent the intake webhook directly because JMS-to-n8n forwarding was not configured. The workflow retrieves the authoritative booking, sends an owner email, and handles approval through the API. Approval returns a demo payment link. The simulated payment callback updates booking state, after which n8n created a Google Calendar event and saved its event ID through the API.",
       },
       {
+        heading: 'Challenges and what I learned',
+        body:
+          'n8n test webhooks only listen after an execution is started, and a malformed Respond to Webhook body caused a failed run. I also had to reconnect the Google Calendar credential. Because an earlier node can update payment state before a later calendar step fails, I learned to inspect each node and verify the API state before retrying instead of assuming the whole workflow rolled back.',
+      },
+      {
         heading: 'Prototype boundary',
         body:
-          'The repository describes deployment as future work. Source files demonstrate the prototype architecture, not production use, live transactions, configured email/calendar services, or measured business outcomes.',
+          'The email and Google Calendar steps were exercised locally using credentials configured in n8n; credentials are not included in the repository. Payment is a simulation: it does not charge a customer or verify a real payment-provider callback. The system is a local prototype, not a public production service.',
       },
     ],
     workflowSteps: [
@@ -44,7 +49,7 @@ export const projects: PortfolioProject[] = [
       'Owner Approval',
       'Payment Link',
       'Payment Confirmation',
-      'Google Calendar Booking',
+      'Calendar Event + Saved ID',
     ],
   },
   {
