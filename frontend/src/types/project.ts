@@ -10,6 +10,12 @@ export interface CaseStudySection {
   body: string;
 }
 
+export interface ProjectScreenshot {
+  src: string;
+  alt: string;
+  caption: string;
+}
+
 /** Describes one portfolio project and the facts shown in its case study. */
 export interface PortfolioProject {
   id: string;
@@ -20,6 +26,7 @@ export interface PortfolioProject {
   technologies: ProjectTechnology[];
   caseStudy: CaseStudySection[];
   workflowSteps?: string[];
+  screenshots?: ProjectScreenshot[];
   achievement?: string;
   imagePath?: string;
   repositoryUrl?: string;
