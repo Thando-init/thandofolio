@@ -1,0 +1,19 @@
+# Java and Maven
+backend/target/
+**/target/
+*.class
+
+# Node and Vite
+**/node_modules/
+frontend/dist/
+frontend/.prerender/
+frontend/coverage/
+
+# Local environment and editor files
+.env
+.env.*
+!.env.example
+.vscode/
+.idea/
+.DS_Store
+*.log

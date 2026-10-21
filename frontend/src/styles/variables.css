@@ -1,0 +1,25 @@
+:root {
+  color-scheme: light;
+  font-family: 'DM Sans', 'Avenir Next', Avenir, system-ui, sans-serif;
+  color: #202722;
+  background: #f4f2eb;
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+
+  --paper: #f4f2eb;
+  --paper-deep: #ebe9df;
+  --ink: #202722;
+  --ink-soft: #526057;
+  --line: #d7d9ce;
+  --green: #1f5a45;
+  --green-dark: #154431;
+  --green-wash: #e3ebe3;
+  --white: #fffefa;
+  --heading-font: 'Newsreader', 'Iowan Old Style', 'Palatino Linotype', Georgia, serif;
+  --body-font: 'DM Sans', 'Avenir Next', Avenir, system-ui, sans-serif;
+  --content-width: 1180px;
+  --page-gutter: clamp(1.25rem, 5vw, 5rem);
+  --radius-small: 0.35rem;
+}
