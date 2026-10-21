@@ -69,6 +69,19 @@ export function ProjectCard({ project, index }: ProjectCardProps) {
               </section>
             ))}
             {project.workflowSteps ? <WorkflowDiagram steps={project.workflowSteps} /> : null}
+            {project.screenshots?.length ? (
+              <section className="case-study__gallery" aria-labelledby={`gallery-${project.id}`}>
+                <h4 id={`gallery-${project.id}`}>Demo screenshots</h4>
+                <div className="case-study__gallery-grid">
+                  {project.screenshots.map((screenshot) => (
+                    <figure key={screenshot.src}>
+                      <img src={screenshot.src} alt={screenshot.alt} loading="lazy" />
+                      <figcaption>{screenshot.caption}</figcaption>
+                    </figure>
+                  ))}
+                </div>
+              </section>
+            ) : null}
           </div>
         </details>
       </div>
