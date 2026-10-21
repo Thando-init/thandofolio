@@ -16,5 +16,5 @@ export const profile = {
   contactEmail: 'thandomaajola@gmail.com',
   linkedinUrl: 'https://www.linkedin.com/in/thando-majola97',
   githubUrl: 'https://github.com/Thando-init',
-  cvUrl: 'https://canva.link/w8pdfvv3botpvll',
+  cvUrl: '/cv/thando-majola-cv.pdf',
 } as const;

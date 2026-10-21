@@ -22,10 +22,15 @@ export function ContactSection() {
               return (
                 <li key={link.label}>
                   {href ? (
-                    <a href={href} target={link.label === 'Email' ? undefined : '_blank'} rel={link.label === 'Email' ? undefined : 'noreferrer'}>
+                    <a
+                      href={href}
+                      download={link.download}
+                      target={link.label === 'Email' || link.download ? undefined : '_blank'}
+                      rel={link.label === 'Email' || link.download ? undefined : 'noreferrer'}
+                    >
                       <span>{link.label}</span>
                       {link.label === 'Email' && link.value ? <small className="contact-list__value">{link.value}</small> : null}
-                      <span aria-hidden="true">↗</span>
+                      <span aria-hidden="true">{link.download ? '↓' : '↗'}</span>
                     </a>
                   ) : (
                     <span className="contact-list__placeholder">

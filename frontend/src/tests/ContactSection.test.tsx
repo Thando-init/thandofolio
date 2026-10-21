@@ -18,10 +18,13 @@ describe('ContactSection', () => {
       'href',
       'https://github.com/Thando-init',
     );
-    expect(screen.getByRole('link', { name: 'CV' })).toHaveAttribute(
+    const cvLink = screen.getByRole('link', { name: 'Download CV (PDF)' });
+    expect(cvLink).toHaveAttribute(
       'href',
-      'https://canva.link/w8pdfvv3botpvll',
+      '/cv/thando-majola-cv.pdf',
     );
+    expect(cvLink).toHaveAttribute('download', 'thando-majola-cv.pdf');
+    expect(cvLink).not.toHaveAttribute('target');
     expect(screen.queryByRole('form')).not.toBeInTheDocument();
     expect(screen.queryByText(/to be added/i)).not.toBeInTheDocument();
     expect(screen.queryByText(/This site does not collect or store form submissions/i)).not.toBeInTheDocument();
