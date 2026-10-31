@@ -103,6 +103,7 @@ export const projects: PortfolioProject[] = [
     id: 'influencer-intel',
     title: 'Influencer Intel',
     repositoryUrl: 'https://github.com/Thando-init/Influencer-Intel-Dashboard',
+    demoUrl: 'https://influencer-intel-dashboard711.streamlit.app/',
     category: 'Data Analytics / Creator Intelligence',
     status: 'Work in Progress — Undergoing an Upgrade',
     summary:
@@ -130,7 +131,7 @@ export const projects: PortfolioProject[] = [
       {
         heading: 'Demo access',
         body:
-          'I checked the supplied Streamlit URL as an anonymous visitor. It redirects to Streamlit authentication instead of the dashboard and may show an inactivity/wake screen, so I do not present it as a public live demo. I can add an updated shareable deployment link when I have one.',
+          'I opened my Streamlit app while it was asleep and found that it loaded again after waking. It may take a little while to become available on a first visit after inactivity, so visitors should give it time to start before refreshing.',
       },
       {
         heading: 'Where I may take it next',
@@ -142,6 +143,7 @@ export const projects: PortfolioProject[] = [
   {
     id: 'saferide',
     title: 'SafeRide',
+    demoUrl: 'https://safe-ride-sa.lovable.app',
     category: 'Product Development / Travel Safety',
     status: 'Hackathon MVP',
     summary:

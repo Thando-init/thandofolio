@@ -57,7 +57,7 @@ describe('ProjectCard', () => {
     expect(screen.queryByRole('link', { name: /live demo/i })).not.toBeInTheDocument();
   });
 
-  it('does not render missing repository or demo links', () => {
+  it('renders the SafeRide live demo and keeps its unavailable repository link hidden', () => {
     const safeRide = projects.find((project) => project.id === 'saferide');
     expect(safeRide).toBeDefined();
 
@@ -65,6 +65,10 @@ describe('ProjectCard', () => {
 
     expect(screen.getAllByText('5th Place — Lovable Startup Week')).toHaveLength(2);
     expect(screen.queryByRole('link', { name: /repository/i })).not.toBeInTheDocument();
-    expect(screen.queryByRole('link', { name: /live demo/i })).not.toBeInTheDocument();
+
+    const demoLink = screen.getByRole('link', { name: /live demo/i });
+    expect(demoLink).toHaveAttribute('href', 'https://safe-ride-sa.lovable.app');
+    expect(demoLink).toHaveAttribute('target', '_blank');
+    expect(demoLink).toHaveAttribute('rel', 'noreferrer');
   });
 });
