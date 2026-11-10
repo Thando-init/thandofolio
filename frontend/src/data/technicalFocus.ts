@@ -1,8 +1,8 @@
 export const technicalFocus = [
   {
     label: 'Tools I have used in project prototypes',
-    description: 'I used these tools and integration concepts in the salon workflow prototype and SafeRide MVP.',
-    items: ['n8n', 'Google Calendar', 'Webhooks', 'Lovable'],
+    description: 'I used these tools and integration concepts across my workflow and product prototypes.',
+    items: ['n8n', 'Google Calendar', 'Webhooks', 'Notion', 'Supabase pgvector', 'Google Gemini', 'Slack', 'Lovable'],
   },
   {
     label: 'What I am learning through this portfolio',

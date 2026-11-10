@@ -4,6 +4,30 @@ import { projects } from '../data/projects';
 import { ProjectCard } from '../components/ProjectCard';
 
 describe('ProjectCard', () => {
+  it('renders the support-triage case study with the verified stack and human-review workflow', () => {
+    const triageProject = projects.find((project) => project.id === 'grounded-ai-support-triage');
+    expect(triageProject).toBeDefined();
+
+    render(<ProjectCard project={triageProject!} index="01" />);
+
+    expect(screen.getByRole('heading', { name: 'Grounded AI Support Triage' })).toBeInTheDocument();
+    expect(screen.getByText('Working Local Prototype')).toBeInTheDocument();
+    expect(screen.getByText('n8n (self-hosted)')).toBeInTheDocument();
+    expect(screen.getByText('Supabase · pgvector')).toBeInTheDocument();
+
+    fireEvent.click(screen.getByText('Read case study'));
+    expect(screen.getByText('Slack Queue for Human Review')).toBeVisible();
+    expect(screen.getByText(/does not send replies to customers/i)).toBeVisible();
+    expect(screen.getByRole('group', { name: 'Grounded AI Support Triage workflow' })).toBeInTheDocument();
+    expect(screen.getByRole('heading', { name: 'Demo screenshots' })).toBeVisible();
+    expect(screen.getByAltText(/n8n canvas showing the support form and webhook intake/i)).toHaveAttribute(
+      'src',
+      '/images/support-triage/01-triage-workflow.png',
+    );
+    expect(screen.getByAltText(/Notion support knowledge-base index/i)).toBeInTheDocument();
+    expect(screen.getByText(/no customer reply is sent automatically/i)).toBeVisible();
+  });
+
   it('renders the salon workflow and keeps the case study collapsed until requested', () => {
     const salonProject = projects.find((project) => project.id === 'salon-booking');
     expect(salonProject).toBeDefined();

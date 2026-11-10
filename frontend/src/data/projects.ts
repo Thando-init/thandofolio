@@ -2,6 +2,80 @@ import type { PortfolioProject } from '../types/project';
 
 export const projects: PortfolioProject[] = [
   {
+    id: 'grounded-ai-support-triage',
+    title: 'Grounded AI Support Triage',
+    category: 'AI Automation / Systems Integration',
+    status: 'Working Local Prototype',
+    summary:
+      'I built and tested a self-hosted n8n support-triage prototype that accepts demo tickets through a form or webhook, classifies and routes them, retrieves relevant Notion guidance from Supabase pgvector, and posts a cited draft to the appropriate Slack review channel. It never sends a customer reply automatically.',
+    technologies: [
+      { name: 'n8n (self-hosted)', status: 'used' },
+      { name: 'Google Gemini', status: 'used' },
+      { name: 'Supabase · pgvector', status: 'used' },
+      { name: 'Notion', status: 'used' },
+      { name: 'Slack', status: 'used' },
+      { name: 'Docker Compose', status: 'used' },
+      { name: 'Webhooks and forms', status: 'used' },
+    ],
+    caseStudy: [
+      {
+        heading: 'The workflow I built',
+        body:
+          'A customer-style intake form or test webhook sends a ticket into self-hosted n8n. Gemini returns structured triage fields, then deterministic workflow rules set the final priority and review path. The workflow retrieves related Notion guide chunks from Supabase pgvector, drafts a response grounded in that context, and posts the ticket, source page ID, and suggested reply to a Slack review channel.',
+      },
+      {
+        heading: 'Human review and security controls',
+        body:
+          'The workflow does not send replies to customers. Suggested replies are posted for a human to review. Reports of possible account takeover are flagged as security concerns and routed to a dedicated security-review channel with immediate escalation guidance. Billing and other tickets route to their relevant review queues.',
+      },
+      {
+        heading: 'Knowledge retrieval and citations',
+        body:
+          'I created a small Notion support knowledge base, synced its guide content through a separate manual n8n workflow, generated Gemini embeddings, and indexed the chunks in Supabase pgvector. Ticket runs retrieve matching guidance and include the source Notion page ID in Slack so a reviewer can trace the draft to its source.',
+      },
+      {
+        heading: 'What I verified and what remains a prototype',
+        body:
+          'I tested form intake, Billing routing, and security escalation end to end, including retrieval of the relevant guide and a human-review draft. This is a local demonstration, not a live help-desk integration or production service. The knowledge sync is manually run and is not yet idempotent; there is no automatic customer reply, production monitoring, or client deployment.',
+      },
+    ],
+    workflowSteps: [
+      'Form or Webhook Intake',
+      'Gemini Ticket Classification',
+      'Rules-Based Priority and Safety Checks',
+      'Supabase pgvector RAG from Notion Guides',
+      'Grounded Draft with Source ID',
+      'Slack Queue for Human Review',
+    ],
+    screenshots: [
+      {
+        src: '/images/support-triage/01-triage-workflow.png',
+        alt: 'n8n canvas showing the support form and webhook intake, Gemini classification, Supabase retrieval, draft generation, routing switch, and Slack channel branches.',
+        caption: 'The end-to-end n8n workflow connects intake, triage, retrieval, drafting, and Slack review routes.',
+      },
+      {
+        src: '/images/support-triage/02-intake-form.png',
+        alt: 'Support intake form with name, email, subject, and message fields, shown with fictional test data.',
+        caption: 'A simple customer-style form captures the fields used by the triage workflow.',
+      },
+      {
+        src: '/images/support-triage/03-security-review-in-slack.png',
+        alt: 'Slack security-review channel showing a fictional ticket flagged as urgent, security concern true, and human review required.',
+        caption: 'A simulated account-security ticket is escalated to a human reviewer; no customer reply is sent automatically.',
+      },
+      {
+        src: '/images/support-triage/04-notion-knowledge-base.png',
+        alt: 'Notion support knowledge-base index listing service outage, password reset, and billing guides.',
+        caption: 'Notion holds the support guides used as source material for retrieval-augmented drafting.',
+      },
+      {
+        src: '/images/support-triage/05-form-confirmation.png',
+        alt: 'Form submission confirmation stating that the support request was submitted for review and warning users not to submit passwords or verification codes.',
+        caption: 'After submission, the form confirms receipt and reminds users not to include credentials.',
+      },
+    ],
+  },
+  {
     id: 'salon-booking',
     title: 'Salon Booking and Payment Automation',
     repositoryUrl: 'https://github.com/Thando-init/appointment-ops-platform',
@@ -103,7 +177,6 @@ export const projects: PortfolioProject[] = [
     id: 'influencer-intel',
     title: 'Influencer Intel',
     repositoryUrl: 'https://github.com/Thando-init/Influencer-Intel-Dashboard',
-    demoUrl: 'https://influencer-intel-dashboard711.streamlit.app/',
     category: 'Data Analytics / Creator Intelligence',
     status: 'Work in Progress — Undergoing an Upgrade',
     summary:

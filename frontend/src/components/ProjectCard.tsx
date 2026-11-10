@@ -68,7 +68,7 @@ export function ProjectCard({ project, index }: ProjectCardProps) {
                 <p>{section.body}</p>
               </section>
             ))}
-            {project.workflowSteps ? <WorkflowDiagram steps={project.workflowSteps} /> : null}
+            {project.workflowSteps ? <WorkflowDiagram steps={project.workflowSteps} label={`${project.title} workflow`} /> : null}
             {project.screenshots?.length ? (
               <section className="case-study__gallery" aria-labelledby={`gallery-${project.id}`}>
                 <h4 id={`gallery-${project.id}`}>Demo screenshots</h4>
