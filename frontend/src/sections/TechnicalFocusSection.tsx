@@ -1,16 +1,16 @@
 import { SectionHeading } from '../components/SectionHeading';
 import { technicalFocus } from '../data/technicalFocus';
 
-/** Separates confirmed project tools from current learning and longer-term interests. */
+/** Separates verified project stacks from the areas Thando is still developing. */
 export function TechnicalFocusSection() {
   return (
     <section className="section technical-section page-shell" id="technical-focus" aria-labelledby="technical-title">
       <SectionHeading
         index="03"
-        eyebrow="Technical focus"
-        title="Learning how the pieces fit."
+        eyebrow="Tools I work with"
+        title="Tech, with context."
         titleId="technical-title"
-        introduction="I’m building capability through projects and keeping the difference between hands-on use and areas I’m exploring clear."
+        introduction="Stacks I have used in projects—and the skills I am continuing to build."
       />
       <div className="focus-list">
         {technicalFocus.map((group, index) => (

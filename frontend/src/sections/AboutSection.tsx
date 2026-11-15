@@ -1,16 +1,16 @@
 import { SectionHeading } from '../components/SectionHeading';
 import { profile } from '../data/profile';
 
-/** Connects Thando's business background to the practical systems he is learning to build. */
+/** Connects Thando's business background to the systems and workflows she builds. */
 export function AboutSection() {
   return (
     <section className="section about-section page-shell" id="about" aria-labelledby="about-title">
       <SectionHeading
         index="01"
-        eyebrow="A little context"
-        title="Business first. Systems next."
+        eyebrow="About me"
+        title="Business thinking. Systems building."
         titleId="about-title"
-        introduction="A non-linear route into technology, shaped by the way real organisations work."
+        introduction="A business background, applied to software and systems integration."
       />
       <p className="about-section__positioning">{profile.positioning}</p>
       <div className="about-section__body">

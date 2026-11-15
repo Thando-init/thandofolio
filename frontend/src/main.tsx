@@ -2,6 +2,7 @@ import { createRoot, hydrateRoot } from 'react-dom/client';
 import { App } from './App';
 import './styles/variables.css';
 import './styles/global.css';
+import './styles/portfolio-refresh.css';
 
 const rootElement = document.getElementById('root');
 

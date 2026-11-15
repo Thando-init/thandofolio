@@ -1,4 +1,5 @@
 import type { PortfolioProject } from '../types/project';
+import { TriageDemo } from './TriageDemo';
 import { WorkflowDiagram } from './WorkflowDiagram';
 
 interface ProjectCardProps {
@@ -26,6 +27,8 @@ export function ProjectCard({ project, index }: ProjectCardProps) {
         </div>
         <h3>{project.title}</h3>
         <p className="project-card__summary">{project.summary}</p>
+
+        {project.id === 'grounded-ai-support-triage' ? <TriageDemo /> : null}
 
         {project.achievement ? (
           <p className="project-card__achievement"><span aria-hidden="true">✳</span> {project.achievement}</p>
